@@ -1,0 +1,96 @@
+<html>
+<head><title>Precios Tienda </title>
+<style type="text/css">
+#tab_precios {
+width:980; border: none; padding: 0; background-color: navy
+}
+#tab_precios tr.cabeceras, #tab_precios tr.cabeceras:hover {
+	display: block;
+	background-color: 3399CC;
+	color: silver;
+	}
+#tab_precios tr:hover {
+	display: block;
+	background-color: green;
+	color: silver;
+	}
+#tab_precios tr {
+	border : none;
+	background-color: silver;
+	display: none; }
+</style>
+</head>
+<body>
+<center>
+<input type="text" id="buscar" style="background-image: url('Lupa.png'); background-repeat: no-repeat; width:500; height: 35; padding-left: 83; font-size: 18px" onKeyUp="filtrar()"/>
+<div id="conte" style="width:1000; height: 200; overflow:auto;">
+<table id="tab_precios" >
+<tr id="cabecera" class="cabeceras"> <th style="width: 100">Codigo </th><th style="width: 360">Descripcion </th><th style="width: 120">Presentacion </th><th style="width: 120">Cantidad </th><th style="width: 60">Precio </th></tr>
+<tr onClick="lista_venta(this)"> <td> </td> <td>Coca cola </td> <td>600 mls. </td> <td>Pza. </td> <td>11.00 </td>  </tr> 
+<tr onClick="lista_venta(this)"> <td> </td> <td>Coca cola </td> <td>600 mls. (Fria)</td> <td>Pza. </td> <td>12.00 </td>   </tr> 
+<tr onClick="lista_venta(this)"> <td> </td> <td>Coca cola </td> <td>1 1/4 lts. </td> <td>Pza. </td> <td>14.00 </td>   </tr> 
+<tr onClick="lista_venta(this)"> <td> </td> <td>Coca cola </td> <td>1 1/4 lts. (Fria)</td> <td>Pza. </td> <td>15.00 </td>   </tr> 
+<tr onClick="lista_venta(this)"> <td> </td> <td>Coca cola </td> <td>2.5 lts. </td> <td>Pza. </td> <td>22.00 </td>   </tr> 
+<tr onClick="lista_venta(this)"> <td> </td> <td>Coca cola </td> <td>2.5 lts. (Fria)</td> <td>Pza. </td> <td>23.00 </td>   </tr> 
+<tr onClick="lista_venta(this)"> <td> </td> <td>Coca cola </td> <td>3 lts. (Fria)</td> <td>Pza. </td> <td>32.00 </td>   </tr> 
+<tr onClick="lista_venta(this)"> <td> </td> <td>Coca cola </td> <td>3 lts. </td> <td>Pza. </td> <td>33.00 </td>   </tr> 
+<tr onClick="lista_venta(this)"> <td> </td> <td>Sabritas, papas </td> <td>90 grs. </td> <td>Pza. </td> <td>10.00 </td>    </tr> 
+<tr onClick="lista_venta(this)"> <td> </td> <td>Cheetos, papas </td> <td>90 grs. </td> <td>Pza. </td> <td>5.00 </td>  </tr> 
+
+</table>
+</div>
+<hr>
+<div id="venta" style="text-align: center; background-color: teal; width:450;" >
+
+
+</div>
+<script language="JavaScript">
+/*
+	var caja, tabla, tr, td, articulo, filtro, i, n;
+	articulo = document.getElementById('buscar');
+	filtro = articulo.value.toUpperCase();
+	tabla = document.getElementById('tab_precios');
+	tr =  tab_precios.getElementsByTagName('tr');
+	//td = tr.getElementsByTagName('td');
+*/
+	
+function filtrar() {
+	var caja, tabla, tr, td, articulo, filtro, i, n;
+	articulo = document.getElementById('buscar');
+	filtro = articulo.value.toUpperCase();
+	tabla = document.getElementById('tab_precios');
+	tr =  tab_precios.getElementsByTagName('tr');
+	//td = tr.getElementsByTagName('td');
+
+	for ( i=1; i < tr.length; i++ ) {
+		td = tr[i].getElementsByTagName('td')[1];
+		if (td) {
+			if ( filtro == "" || filtro == " " ) {
+				for ( n=1; n < tr.length; n++ ) {
+					tr[n].style.display = "none"; }
+			}
+			if ( td.innerHTML.toUpperCase().indexOf(filtro) > -1 && filtro != "" && filtro != " " ) {
+				//td = tr[i].getElementsByTagName('td')[3];
+				tr[i].style.display = "block"; }
+				//td[].style.backgroundColor = "green"; }
+			}
+			if ( td.innerHTML.toUpperCase().indexOf(filtro) < 0 && filtro != "" && filtro != " " ) { 
+				tr[i].style.display = "none"; }
+			}
+}
+
+function lista_venta(producto) {
+
+	var td1, td2, td3, td4, td5;
+		td1 = producto.getElementsByTagName("td")[0].innerHTML;
+		td2 = producto.getElementsByTagName("td")[1].innerHTML;
+		td3 = producto.getElementsByTagName("td")[2].innerHTML;
+		td4 = producto.getElementsByTagName("td")[3].innerHTML;
+		td5 = producto.getElementsByTagName("td")[4].innerHTML;
+			//alert("Producto: " + td2 + ' - ' + td3 + ' - ' + td4 + ' - ' + td5);
+		venta.innerHTML += "" + td2 + ' \t ' + td3 + ' \t ' + td4 + ' \t ' + td5 + '<br>';
+}
+</script>
+</center>
+</body>
+</html>
