@@ -2,7 +2,7 @@
 <head><title>Precios Tienda </title>
 <style type="text/css">
 #tab_precios {
-width:980; border: none; padding: 0; background-color: navy
+width:980; border: none; padding: 0; background-color: navy; border: none;
 }
 #tab_precios tr.cabeceras, #tab_precios tr.cabeceras:hover {
 	display: block;
@@ -22,10 +22,10 @@ width:980; border: none; padding: 0; background-color: navy
 </head>
 <body>
 <center>
-<input type="text" id="buscar" style="background-image: url('Lupa.png'); background-repeat: no-repeat; width:500; height: 35; padding-left: 83; font-size: 18px" onKeyUp="filtrar()"/>
+<input type="text" id="buscar" style="background-image: url('res/Lupa.png'); background-repeat: no-repeat; width:500; height: 35; padding-left: 83; font-size: 18px" onKeyUp="filtrar()"/>
 <div id="conte" style="width:1000; height: 200; overflow:auto;">
 <table id="tab_precios" >
-<tr id="cabecera" class="cabeceras"> <th style="width: 100">Codigo </th><th style="width: 360">Descripcion </th><th style="width: 120">Presentacion </th><th style="width: 120">Cantidad </th><th style="width: 60">Precio </th></tr>
+<tr id="cabecera" class="cabeceras"> <th style="width: 100">Codigo </th><th style="width: 360">Descripcion </th><th style="width: 120">Presentacion </th><th style="width: 90">Cantidad </th><th style="width: 60">Precio </th></tr>
 <tr onClick="lista_venta(this)"> <td> </td> <td>Coca cola </td> <td>600 mls. </td> <td>Pza. </td> <td>11.00 </td>  </tr> 
 <tr onClick="lista_venta(this)"> <td> </td> <td>Coca cola </td> <td>600 mls. (Fria)</td> <td>Pza. </td> <td>12.00 </td>   </tr> 
 <tr onClick="lista_venta(this)"> <td> </td> <td>Coca cola </td> <td>1 1/4 lts. </td> <td>Pza. </td> <td>14.00 </td>   </tr> 
@@ -40,7 +40,7 @@ width:980; border: none; padding: 0; background-color: navy
 </table>
 </div>
 <hr>
-<div id="venta" style="text-align: center; background-color: teal; width:450;" >
+<div id="venta" style="text-align: center; background-color: ff99ff; width:450;" >
 
 
 </div>
@@ -81,14 +81,15 @@ function filtrar() {
 
 function lista_venta(producto) {
 
-	var td1, td2, td3, td4, td5;
+	var td1, td2, td3, td4, td5, hora;
+	hora = new Date();
 		td1 = producto.getElementsByTagName("td")[0].innerHTML;
 		td2 = producto.getElementsByTagName("td")[1].innerHTML;
 		td3 = producto.getElementsByTagName("td")[2].innerHTML;
 		td4 = producto.getElementsByTagName("td")[3].innerHTML;
 		td5 = producto.getElementsByTagName("td")[4].innerHTML;
 			//alert("Producto: " + td2 + ' - ' + td3 + ' - ' + td4 + ' - ' + td5);
-		venta.innerHTML += "" + td2 + ' \t ' + td3 + ' \t ' + td4 + ' \t ' + td5 + '<br>';
+		venta.innerHTML += '\n' + td2 + ' \t ' + td3 + ' \t ' + td4 + ' \t ' + td5 + '<br>';
 }
 </script>
 </center>
